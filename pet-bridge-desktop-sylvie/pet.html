@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pet Bridge Desktop Pet</title>
+    <link rel="stylesheet" href="./pet.css" />
+  </head>
+  <body>
+    <div class="pet-world" id="petWorld">
+      <div class="speech" id="speechBubble">我在。</div>
+      <section class="pet-chat" id="petChat" aria-label="桌宠对话">
+        <div class="pet-chat-head">
+          <span id="petChatName">希尔薇</span>
+          <button id="petChatClose" type="button" aria-label="关闭对话">×</button>
+        </div>
+        <div class="pet-chat-log" id="petChatLog"></div>
+        <form class="pet-chat-form" id="petChatForm">
+          <input id="petChatInput" type="text" placeholder="和她说句话..." autocomplete="off" />
+          <button type="submit">发送</button>
+        </form>
+      </section>
+      <button class="pet-hitbox" id="petHitbox" type="button" aria-label="桌宠">
+        <span class="pet-sprite" id="petSprite"></span>
+      </button>
+      <div class="radial-menu" id="radialMenu" aria-label="桌宠轮盘"></div>
+    </div>
+
+    <script src="./shared-protocol.js"></script>
+    <script src="./pet-window.js"></script>
+  </body>
+</html>

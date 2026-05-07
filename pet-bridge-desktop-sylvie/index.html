@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pet Bridge</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="pet-stage" id="petStage" aria-label="桌宠互动区">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Pet Bridge</p>
+            <h1 id="petName">卡琳</h1>
+          </div>
+          <div class="status-stack">
+            <div class="state-chip" id="stateChip">待机</div>
+            <div class="server-chip" id="serverChip">本地模式</div>
+          </div>
+        </header>
+
+        <div class="stage-surface" id="stageSurface">
+          <div class="speech" id="speechBubble">我在。</div>
+          <button class="pet-button" id="petButton" type="button" aria-label="和桌宠互动">
+            <span class="pet-sprite" id="petSprite" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <form class="chatbar" id="chatForm">
+          <input
+            id="chatInput"
+            type="text"
+            autocomplete="off"
+            placeholder="和她说话，或输入：工作、检查、打招呼、跳一下"
+            aria-label="输入消息"
+          />
+          <button class="send-button" type="submit">发送</button>
+        </form>
+      </section>
+
+      <aside class="control-panel" aria-label="桌宠控制台">
+        <section class="panel-section">
+          <div class="section-head">
+            <h2>导入</h2>
+            <button class="small-button" id="resetPet" type="button">默认</button>
+          </div>
+          <label class="file-picker">
+            <span>选择宠物包</span>
+            <input id="petFiles" type="file" multiple accept=".json,.webp,.png,.jpg,.jpeg" />
+          </label>
+          <label class="file-picker">
+            <span>选择目录</span>
+            <input id="petDirectory" type="file" webkitdirectory multiple />
+          </label>
+          <div class="hint-line" id="importHint">支持 hatch-pet 的 pet.json + spritesheet.webp。</div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-head">
+            <h2>动作</h2>
+            <label class="toggle">
+              <input type="checkbox" id="pinState" />
+              <span>固定</span>
+            </label>
+          </div>
+          <div class="action-grid" id="actionGrid"></div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-head">
+            <h2>行为</h2>
+            <label class="toggle">
+              <input type="checkbox" id="autoMode" checked />
+              <span>自主</span>
+            </label>
+          </div>
+          <div class="meters">
+            <label>
+              <span>亲近</span>
+              <progress id="bondMeter" max="100" value="42"></progress>
+            </label>
+            <label>
+              <span>专注</span>
+              <progress id="focusMeter" max="100" value="55"></progress>
+            </label>
+          </div>
+          <div class="sequence-row" id="sequenceRow"></div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-head">
+            <h2>LLM</h2>
+            <label class="toggle">
+              <input type="checkbox" id="llmEnabled" />
+              <span>回复</span>
+            </label>
+          </div>
+          <div class="settings-grid">
+            <input id="llmBaseUrl" type="text" placeholder="Base URL，例如 https://api.openai.com/v1" />
+            <input id="llmModel" type="text" placeholder="模型名" />
+            <input id="llmApiKey" type="password" placeholder="API Key，可留空用环境变量" />
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-head">
+            <h2>TTS</h2>
+            <label class="toggle">
+              <input type="checkbox" id="ttsEnabled" checked />
+              <span>发声</span>
+            </label>
+          </div>
+          <div class="settings-grid">
+            <select id="ttsMode" aria-label="TTS 模式">
+              <option value="browser">浏览器语音</option>
+              <option value="api">TTS API</option>
+            </select>
+            <input id="ttsBaseUrl" type="text" placeholder="Base URL，例如 https://api.openai.com/v1" />
+            <input id="ttsModel" type="text" placeholder="TTS 模型名" />
+            <input id="ttsVoice" type="text" placeholder="音色，例如 alloy" />
+            <input id="ttsApiKey" type="password" placeholder="API Key，可留空用环境变量" />
+          </div>
+        </section>
+
+        <section class="panel-section log-section">
+          <h2>记录</h2>
+          <ol class="event-log" id="eventLog"></ol>
+        </section>
+      </aside>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

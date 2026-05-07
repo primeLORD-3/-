@@ -1,0 +1,45 @@
+{
+  "id": "karin",
+  "displayName": "卡琳",
+  "description": "A compact Codex pet version of Karin.",
+  "spritesheetPath": "spritesheet.webp",
+  "atlas": {
+    "columns": 8,
+    "rows": 9,
+    "cellWidth": 192,
+    "cellHeight": 208
+  },
+  "states": {
+    "idle": { "row": 0, "durations": [280, 110, 110, 140, 140, 320], "label": "待机", "icon": "I" },
+    "running-right": {
+      "row": 1,
+      "durations": [120, 120, 120, 120, 120, 120, 120, 220],
+      "label": "向右",
+      "icon": "R"
+    },
+    "running-left": {
+      "row": 2,
+      "durations": [120, 120, 120, 120, 120, 120, 120, 220],
+      "label": "向左",
+      "icon": "L"
+    },
+    "waving": { "row": 3, "durations": [140, 140, 140, 280], "label": "招呼", "icon": "W", "transient": true },
+    "jumping": {
+      "row": 4,
+      "durations": [140, 140, 140, 140, 280],
+      "label": "跳跃",
+      "icon": "J",
+      "transient": true
+    },
+    "failed": {
+      "row": 5,
+      "durations": [140, 140, 140, 140, 140, 140, 140, 240],
+      "label": "受挫",
+      "icon": "F",
+      "transient": true
+    },
+    "waiting": { "row": 6, "durations": [150, 150, 150, 150, 150, 260], "label": "等待", "icon": "T" },
+    "running": { "row": 7, "durations": [120, 120, 120, 120, 120, 220], "label": "工作", "icon": "P" },
+    "review": { "row": 8, "durations": [150, 150, 150, 150, 150, 280], "label": "审阅", "icon": "V" }
+  }
+}

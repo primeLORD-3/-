@@ -1,0 +1,19 @@
+{
+  "name": "pet-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A local adapter for Codex hatch-pet spritesheets with LLM and TTS hooks.",
+  "main": "main.js",
+  "scripts": {
+    "check": "node --check main.js && node --check preload.js && node --check shared-protocol.js && node --check pet-window.js && node --check console.js && node --check app.js && node --check server.js",
+    "start": "electron .",
+    "web": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10"
+  },
+  "devDependencies": {
+    "electron": "^42.0.0"
+  }
+}
